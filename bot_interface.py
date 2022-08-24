@@ -11,7 +11,7 @@ VK_TOKEN = os.getenv('VK_TOKEN')
 session = vk_api.VkApi(token=VK_TOKEN)
 
 
-def send_message(user_id: int, message: str, keyboard: VkKeyboard|None=None, carousel=None):
+def send_message(user_id: int, message: str, keyboard: VkKeyboard|None=None):
     """
     Send message to user_id
     """
@@ -23,26 +23,6 @@ def send_message(user_id: int, message: str, keyboard: VkKeyboard|None=None, car
 
     if keyboard is not None:
         payload['keyboard'] = keyboard.get_keyboard()
-    payload['template'] = {
-    "type": "carousel",
-    "elements": [
-    {
-        "title": "Title",
-        "description": "Description",
-        "action": {
-                "type": "open_link",
-                "link": "https://vk.com"
-        },
-        "photo_id": "-109837093_457242809",
-        "buttons": [{
-                "action": {
-                        "type": "text",
-                        "label": "Label"
-                }
-        }]
-}
-]
-}
 
     session.method('messages.send', payload)
 
