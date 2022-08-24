@@ -62,10 +62,10 @@ def add(user_id: int, text: str) -> None:
             f.seek(0)
             data = f.read()
             if data.find(match[0]) >= 0:
-                send_message(user_id, f'{match[0]} уже есть в списке!')
+                send_message(user_id, 'Вещь уже есть в списке!')
             else:
                 f.write(f'{match[0]}\n')
-                send_message(user_id, f'{match[0]} успешно добавлен!')
+                send_message(user_id, 'успешно добавлен!')
     else:
         send_message(user_id, 'Чтобы добавить какой-либо товар напишите слово "добавить" и ссылку на товар')
 
@@ -81,7 +81,7 @@ def delete(user_id: int, text: str) -> None:
             new_data = data.replace(f'{match[0]}\n', '')
             new_data = new_data.replace(f'{match[0]}', '')
             f.write(new_data)
-        send_message(user_id, f'{match[0]} успешно удален!')
+        send_message(user_id, 'успешно удален!')
     else:
         send_message(user_id, 'Чтобы удалить какой-либо товар напишите слово "удалить" и ссылку на товар из списка')
 
