@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 vk-api = "*"
-vkwave = "*"
 requests = "*"
 apscheduler = "*"
 
