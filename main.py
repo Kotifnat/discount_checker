@@ -6,7 +6,7 @@ from bot_interface import listen, nl, session
 
 scheduler = BackgroundScheduler()
 
-@scheduler.scheduled_job('cron', hour=10)
+@scheduler.scheduled_job('cron', hour=7) # +3UTC
 def check():
     users = [125159825]
     list_of_discount_products = []
